@@ -1,0 +1,36 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>Users</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    </head>
+    <body>
+        <h1 style="text-align:center;">All Users</h1>
+		<table class="table">
+			<thead class="thead-dark">
+        	<tr>
+        		<th scope="col">ID</th>
+        		<th scope="col">Full Name</th>
+        		<th scope="col">Email</th>
+        		<th scope="col">Created At</th>
+        		<th scope="col">Actions</th>
+        	</tr>
+        	{% for user in all_users %}
+        	<tr>
+        		<td>{{ user['id'] }}</td>
+        		<td>{{ user['first_name'] }} {{ user['last_name'] }}</td>
+        		<td>{{ user['email'] }}</td>
+        		<td>{{ user['created_at'] }}</td>
+        		<td><a href='/user/{{ user['id'] }}'>Show</a> | <a href='/user/{{ user['id'] }}/edit'>Edit</a> | <a href='/delete/{{ user['id'] }}'> Delete</a> </td>
+        	</tr>
+			{% endfor %}
+			</thead>
+		</table>
+			<a href="/user/new">Add a New User</a>
+
+        	
+    </body>
+</html>
